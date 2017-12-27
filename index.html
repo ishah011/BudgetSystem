@@ -2,35 +2,42 @@
 <html>
 	<head>
 		<title>Budget System</title>
-		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<!--		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">-->
 
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.js"></script>
 
 		<script src="angularapp.js"></script>
+		<link rel="stylesheet" href="index.css">
 	</head>
 	<body ng-app="budgetSystem" ng-controller="MainCtrl">
-		
-		<div ng-repeat="expense in expenses">
-			{{expense.date}} {{expense.category}} ${{expense.price}} {{expense.location}}
-        <!-- <span style="font-size:20px; margin-left:10px;">
-          <a ng-show="post.link" href="{{post.link}}">
-            {{post.title}}
-          </a>
-          <span ng-hide="post.link">
-            {{post.title}}
-          </span>
-        </span> -->
-      </div>
+		<h1>Expenses</h1>
+		<table>
+			<tr>
+				<th>Date</th>
+				<th>Category</th>
+				<th>Price</th>
+				<th>Location</th>
+			</tr>
+			<tr ng-repeat="expense in expenses">
+				<td>{{expense.date}}</td>
+				<td>{{expense.category}}</td>
+				<td>{{expense.price}}</td>
+				<td>{{expense.location}}</td>
+			</tr>
+		</table>
+		<!-- <div  class="flexbox-container">
+			<span class="flex-item">{{expense.date}}</span> <span class="flex-item">{{expense.category}}</span> <span class="flex-item">{{expense.price}}</span> <span class="flex-item">{{expense.location}}</span>
+		</div> -->
 
 		<form ng-submit="addExpense()"
         style="margin-top:30px;">
         <h3>Add a new expense</h3>
 
         <div class="form-group">
-          <input type="datetime-local"
+          <input type="date"
             class="form-control"
-            placeholder="Date"
+            placeholder="Date (mm/dd/yyyy)"
             ng-model="date"></input>
         </div>
         <div class="form-group">
@@ -40,11 +47,9 @@
           ng-model="category"></input>
         </div>
         <div class="form-group">
-          <input type="number"
-          min="0.00" 
-          step="0.01"
+          <input type="text"
           class="form-control"
-          placeholder="0.00"
+          placeholder="Price"
           ng-model="price"></input>
         </div>
         <div class="form-group">
