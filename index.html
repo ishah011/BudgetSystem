@@ -11,6 +11,7 @@
 		<link rel="stylesheet" href="index.css">
 	</head>
 	<body ng-app="budgetSystem" ng-controller="MainCtrl">
+		<!--Expenses Table-->
 		<h1>Expenses</h1>
 		<table>
 			<tr>
@@ -26,10 +27,7 @@
 				<td>{{expense.location}}</td>
 			</tr>
 		</table>
-		<!-- <div  class="flexbox-container">
-			<span class="flex-item">{{expense.date}}</span> <span class="flex-item">{{expense.category}}</span> <span class="flex-item">{{expense.price}}</span> <span class="flex-item">{{expense.location}}</span>
-		</div> -->
-
+		<!--Add Expenses form-->
 		<form ng-submit="addExpense()"
         style="margin-top:30px;">
         <h3>Add a new expense</h3>
